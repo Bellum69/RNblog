@@ -1,26 +1,20 @@
-import * as React from "react";
-import { View, Text } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import React, { useState } from "react";
+import AppLoading from "expo-app-loading";
+import { fonts } from "./src/config";
+import AppNavigation from "./src/navagation";
 
-function HomeScreen() {
-  return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Home Screen</Text>
-    </View>
-  );
-}
+export const App = () => {
+  const [isReady, setIsReady] = useState<boolean>(false);
 
-const Stack = createStackNavigator();
+  if (!isReady) {
+    return (
+      <AppLoading
+        startAsync={fonts}
+        onFinish={() => setIsReady(true)}
+        onError={console.warn}
+      />
+    );
+  }
 
-function App() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-}
-
-export default App;
+  return <AppNavigation />;
+};
