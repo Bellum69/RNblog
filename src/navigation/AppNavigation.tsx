@@ -27,9 +27,7 @@ export const AppNavigation = () => {
       <Stack.Screen
         name={names.Post}
         component={PostScreen}
-        options={{
-          title: names.Post,
-        }}
+        options={({ route }) => ({ title: route.params.Id })}
       />
     </Stack.Navigator>
   );
