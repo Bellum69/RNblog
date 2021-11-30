@@ -1,20 +1,14 @@
-import React, { useState } from "react";
-import AppLoading from "expo-app-loading";
-import { fonts } from "./src/config";
-import AppNavigation from "./src/navagation";
+import React from "react";
 
-export const App = () => {
-  const [isReady, setIsReady] = useState<boolean>(false);
+import AppNavigation from "./src/navigation";
+import { NavigationContainer } from "@react-navigation/native";
 
-  if (!isReady) {
-    return (
-      <AppLoading
-        startAsync={fonts}
-        onFinish={() => setIsReady(true)}
-        onError={console.warn}
-      />
-    );
-  }
-
-  return <AppNavigation />;
+const App = () => {
+  return (
+    <NavigationContainer>
+      <AppNavigation />
+    </NavigationContainer>
+  );
 };
+
+export default App;
