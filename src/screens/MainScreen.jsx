@@ -4,16 +4,15 @@ import { s } from "../styles";
 import { DATA } from "../data";
 import { Post } from "../components/post";
 import names from "../navigation/names";
-import { IPost } from "./types";
 
-export const MainScreen = ({ navigation }: any): JSX.Element => {
-  const onOpen = (post: IPost) => {
+export const MainScreen = ({ navigation }) => {
+  const onOpen = (post) => {
     navigation.navigate(names.Post, {
-      Id: post.id,
-      Text: post.text.toUpperCase(),
-      Img: post.img,
-      Booked: post.booked,
-      Date: post.date,
+      postId: post.id,
+      postText: post.text,
+      postImg: post.img,
+      postBooked: post.booked,
+      postDate: post.date,
     });
   };
 

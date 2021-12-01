@@ -7,11 +7,15 @@ export const styles = StyleSheet.create({
     alignItems: "center",
   },
   wrapper: {
-    padding: 30,
+    marginTop: 15,
+    height: "100%",
+    paddingBottom: 0,
   },
   post: {
     marginBottom: 15,
+    alignSelf: "center",
     overflow: "hidden",
+    width: "95%",
   },
   postImage: {
     width: "100%",

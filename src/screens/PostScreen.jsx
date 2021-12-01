@@ -8,8 +8,8 @@ import {
 } from "react-native";
 import { s } from "../styles";
 
-export const PostScreen = ({ route }: any) => {
-  const { Id, Text, Img, Booked, Date } = route.params;
+export const PostScreen = ({ route }) => {
+  const { postId, postText, postImg, postBooked, postDate } = route.params;
 
   const onDeletePost = () =>
     Alert.alert("Delete post alert", "Are you sure?", [
@@ -27,13 +27,13 @@ export const PostScreen = ({ route }: any) => {
 
   return (
     <View>
-      <ImageBackground style={s.postImage} source={{ uri: Img }}>
+      <ImageBackground style={s.postImage} source={{ uri: postImg }}>
         <View style={s.postTextWrap}>
-          <Text style={s.postTitle}>{Date}</Text>
+          <Text style={s.postTitle}>{postDate}</Text>
         </View>
       </ImageBackground>
       <Text style={s.postName}>postName</Text>
-      <Text style={s.postText}>{Text}</Text>
+      <Text style={s.postText}>{postText}</Text>
       <TouchableOpacity
         activeOpacity={0.8}
         style={s.postDeleteButton}

@@ -11,7 +11,11 @@
   },
   "dependencies": {
     "@babel/preset-env": "^7.1.6",
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-native-fontawesome": "^0.2.7",
     "@react-native-community/masked-view": "^0.1.11",
+    "@react-navigation/bottom-tabs": "^5.x",
     "@react-navigation/core": "^5.x",
     "@react-navigation/native": "^5.x",
     "@react-navigation/stack": "^5.x",
@@ -25,6 +29,7 @@
     "react-native-gesture-handler": "^1.10.3",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.9.0",
+    "react-native-svg": "^12.1.1",
     "react-native-web": "0.17.1",
     "react-navigation": "^4.4.4"
   },

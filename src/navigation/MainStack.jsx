@@ -1,12 +1,18 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
+//
 import { MainScreen } from "../screens/MainScreen";
 import { PostScreen } from "../screens/PostScreen";
+//
+import { BookmarkInPost } from "../components/bookmarkInPost";
+import { DrawerButton } from "../components/drawerButton";
+//
 import names from "./names";
 import { THEME } from "../styles/theme";
+
 const Stack = createStackNavigator();
 
-export const AppNavigation = () => {
+export const MainStack = () => {
   return (
     <Stack.Navigator
       initialRouteName={names.Main}
@@ -20,14 +26,25 @@ export const AppNavigation = () => {
       <Stack.Screen
         name={names.Main}
         component={MainScreen}
-        options={{
-          title: names.Main,
-        }}
+        options={({ navigation }) => ({
+          headerTitleAlign: "center",
+          headerLeft: () => (
+            <DrawerButton
+              onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
+            />
+          ),
+        })}
       />
       <Stack.Screen
         name={names.Post}
         component={PostScreen}
-        options={({ route }) => ({ title: route.params.Id })}
+        options={({ route }) => ({
+          title: route.params.postId,
+          headerTitleAlign: "center",
+          headerRight: () => (
+            <BookmarkInPost bookmarkStatus={route.params.postBooked} />
+          ),
+        })}
       />
     </Stack.Navigator>
   );
