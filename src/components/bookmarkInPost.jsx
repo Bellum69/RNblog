@@ -1,11 +1,20 @@
 import React from "react";
 import { Pressable, View } from "react-native";
+import { useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faBookmark, faAd } from "@fortawesome/free-solid-svg-icons";
+import { mainSlice } from "../store/reducers/mainSlice";
 
-export const BookmarkInPost = ({ bookmarkStatus }) => {
+export const BookmarkInPost = ({ bookmarkStatus, postId }) => {
+  const { changeBookmarkStatus } = mainSlice.actions;
+  const dispatch = useDispatch();
   const onPress = () => {
-    console.log(bookmarkStatus);
+    dispatch(
+      changeBookmarkStatus({
+        id: postId,
+        bookmarkStatus: bookmarkStatus,
+      })
+    );
   };
   return (
     <Pressable onPress={onPress || {}} onLongPress={onPress || {}}>

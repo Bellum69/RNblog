@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { ScrollView } from "react-native";
 import { s } from "../styles";
-import { DATA } from "../data";
 import { Post } from "../components/post";
 import names from "../navigation/names";
+import { mainSlice } from "../store/reducers/mainSlice";
 
 export const BookedScreen = ({ navigation }) => {
+  const { getBookedPosts } = mainSlice.actions;
+  const dispatch = useDispatch();
+  const allPosts = useSelector((state) => state.mainReducer.allPosts.payload);
+  useEffect(() => {
+    dispatch(getBookedPosts(allPosts));
+  }, [allPosts]);
+
+  const bookedPosts = useSelector((state) => state.mainReducer.bookedPosts);
   const onOpen = (post) => {
     navigation.navigate(names.Post, {
       postId: post.id,
@@ -15,10 +24,13 @@ export const BookedScreen = ({ navigation }) => {
       postDate: post.date,
     });
   };
+  if (bookedPosts.length < 1) return null;
+  console.log(allPosts);
+  console.log(bookedPosts);
 
-  const bookedData = DATA.filter((post) => post.booked).map((item) => (
+  const mappedPosts = bookedPosts.map((item) => (
     <Post key={item.id} post={item} onOpen={onOpen} />
   ));
 
-  return <ScrollView style={s.wrapper}>{bookedData}</ScrollView>;
+  return <ScrollView style={s.wrapper}>{mappedPosts}</ScrollView>;
 };

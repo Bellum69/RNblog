@@ -6,10 +6,15 @@ import {
   TouchableOpacity,
   Alert,
 } from "react-native";
+import { useDispatch } from "react-redux";
+import { mainSlice } from "../store/reducers/mainSlice";
 import { s } from "../styles";
 
 export const PostScreen = ({ route }) => {
   const { postId, postText, postImg, postBooked, postDate } = route.params;
+  const { deletePost } = mainSlice.actions;
+
+  const dispatch = useDispatch();
 
   const onDeletePost = () =>
     Alert.alert("Delete post alert", "Are you sure?", [
@@ -20,7 +25,7 @@ export const PostScreen = ({ route }) => {
       },
       {
         text: "YES",
-        onPress: () => console.log("OK Pressed"),
+        onPress: () => dispatch(deletePost(postId)),
         style: "destructive",
       },
     ]);

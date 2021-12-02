@@ -44,7 +44,10 @@ export const MainStack = () => {
           title: route.params.postId,
           headerTitleAlign: "center",
           headerRight: () => (
-            <BookmarkInPost bookmarkStatus={route.params.postBooked} />
+            <BookmarkInPost
+              bookmarkStatus={route.params.postBooked}
+              postId={route.params.postId}
+            />
           ),
         })}
       />
