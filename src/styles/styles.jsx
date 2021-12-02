@@ -48,4 +48,13 @@ export const styles = StyleSheet.create({
     fontSize: 30,
     alignSelf: "center",
   },
+  inputs: {
+    backgroundColor: "white",
+    borderBottomWidth: 1,
+    borderColor: "black",
+    padding: 10,
+    marginBottom: 20,
+    width: "90%",
+    alignSelf: "center",
+  },
 });

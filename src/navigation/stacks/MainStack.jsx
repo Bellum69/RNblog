@@ -1,14 +1,16 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
+import { DrawerActions } from "@react-navigation/native";
 //
-import { MainScreen } from "../screens/MainScreen";
-import { PostScreen } from "../screens/PostScreen";
+import { MainScreen } from "../../screens/MainScreen";
+import { PostScreen } from "../../screens/PostScreen";
 //
-import { BookmarkInPost } from "../components/bookmarkInPost";
-import { DrawerButton } from "../components/drawerButton";
+import { BookmarkInPost } from "../../components/bookmarkInPost";
+import { DrawerButton } from "../../components/drawerButton";
+
 //
-import names from "./names";
-import { THEME } from "../styles/theme";
+import names from "../names";
+import { THEME } from "../../styles/theme";
 
 const Stack = createStackNavigator();
 

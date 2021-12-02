@@ -1,2 +1,2 @@
-import { TabNavigation } from "./TabNavigation";
-export { TabNavigation };
+import { AppNavigation } from "./AppNavigation";
+export { AppNavigation };

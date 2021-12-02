@@ -1,12 +1,12 @@
 import React from "react";
 
-import { TabNavigation } from "./src/navigation/TabNavigation";
+import { AppNavigation } from "./src/navigation/";
 import { NavigationContainer } from "@react-navigation/native";
 
 const App = () => {
   return (
     <NavigationContainer>
-      <TabNavigation />
+      <AppNavigation />
     </NavigationContainer>
   );
 };

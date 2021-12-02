@@ -1,7 +1,7 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 //
-import names from "./names";
+import names from "../names";
 import { MainStack } from "./MainStack";
 import { BookmarksStack } from "./BookmarksStack";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
@@ -26,7 +26,7 @@ const screenOptions = (route, color) => {
   return <FontAwesomeIcon size={30} icon={iconName} color="red" />;
 };
 
-export const TabNavigation = () => {
+export const TabStack = () => {
   return (
     <Tab.Navigator
       tabBarOptions={{
